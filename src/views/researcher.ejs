@@ -1,0 +1,9 @@
+<%- include('./common/head'); %>
+<header>
+    <%- include('./common/navbar', {user: user}); %>
+</header>
+<body>
+    <%- include('./common/patient-data', {patients: patients}); %>
+    <%- include('./common/rss-feed', {feed: feed}); %>
+
+</body>

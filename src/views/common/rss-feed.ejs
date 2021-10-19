@@ -1,0 +1,33 @@
+<section class="hero is-fullheight container"  style='padding-top: 50px'>
+    <div class="hero-body has-text-centered">
+        <div class="columns is-multiline is-variable">
+            <%   for (const item of feed.rss.channel.item) { %>
+                <div class="column is-one-third is-full-mobile">
+                    <a href="<%= item.link %>"><div class="card is-hoverable">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <image  src="<%= item["media:content"]["@_url"] %>" alt="<%= item.description %>" title="<%= item.description %>"/>
+
+                            </figure>
+
+                          </div>
+                        <header class="card-header">
+                            <p class="card-header-title overflowing-text py-1">
+                                <%= item.title %>
+                            </p>
+                        </header>
+                        <div class="card-content">
+                            <p class="overflowing-text">
+                                <%= item.description %>
+
+                            </p>
+                            <br/>
+                            <time><%= item.pubDate %></time>
+                          </div>
+                    </div>
+
+                </div></a>
+            <% } %>
+        </div>
+    </div>
+</section>

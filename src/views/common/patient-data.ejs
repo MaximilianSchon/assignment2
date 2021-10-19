@@ -1,0 +1,106 @@
+<% for (const patient of patients) { %>
+    <main class='hero is-fullheight'>
+        <section class="hero" style='padding-top: 50px'>
+            <div class="hero-body">
+                <div class="container">
+                    <p class="title is-headline is-1">
+                        <%= patient.username %>
+                    </p>
+                    <hr class="has-background-black"/>
+                </div>
+            </div>
+        </section>
+        <section class="container py-5 has-text-left" style="width: 100%">
+            <% for (const therapy of patient.patient_therapies) { %>
+                <div class="tile is-ancestor">
+                    <div class="tile is-4 is-parent">
+                        <div class="columns is-vcentered">
+                            <h2 class="title is-headline-secondary is-1">
+                                Therapy<br/>-session
+                                <hr class="has-background-black"/> 
+                                #<%= therapy.therapyID %></h2>
+
+                        </div>
+
+                    </div>
+                    <!-- <hr class="has-background-black"/> -->
+
+                    <div class="tile is-8 is-parent is-vertical test-list">
+                        <% for (const test of therapy.tests) { %>
+
+                            <div class="card is-shadow-dark mb-5 py-5"></header>
+                            <div class="table-container card-content">
+                                <table class="mb-0 table is-fullwidth is-background-colored">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Type
+                                            </th>
+                                            <th>
+                                                Data
+                                            </th>
+                                            <th>
+                                                Notes
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% for (const session of test.test_sessions) { %>
+
+                                            <tr>
+                                                <td width="20%">
+                                                    <%= session.type == 1 ? "Running" : "Swimming" %>
+                                                </td>
+                                                <td width="20%">
+                                                    <a href="/data/<%= session.dataURL %>.csv">Download</a>
+                                                </td>
+                                                <td class="p-0 border-0" width="60%">
+                                                    <% if (session.notes.length > 0) { %>
+                                                        <table class="table is-background-colored">
+                                                            <thead>
+                                                                <th>
+                                                                    Note
+                                                                </th>
+                                                                <th>
+                                                                    Written by
+                                                                </th>
+                                                            </thead>
+                                                            <tbody>
+                                                                <% for (const note of session.notes) { %>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <%= note.note %>
+                                                                        </td>
+                                                                        <td>
+                                                                            <%= note.user_med.username %>
+                                                                        </td>
+                                                                    </tr>
+                                                                <% } %>
+                                                            </tbody>
+
+                                                        </table>
+                                                    <% } %>
+
+                                                </td>
+                                            </tr>
+                                        <% } %>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="3" align="right">
+                                                <b><%= new Date(test.dateTime).toLocaleString() %></b>
+                                            </td>
+
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    <% } %>
+</section>
+</main>
+<% } %>

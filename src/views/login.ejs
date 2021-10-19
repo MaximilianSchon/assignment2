@@ -1,0 +1,47 @@
+<!-- https://github.com/BulmaTemplates/bulma-templates -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%- include('./common/head'); %>
+    <div id="fb-root"></div>
+  </head>
+  <body>
+    <section class="hero is-fullheight " >
+      <div class="hero-body has-text-centered">
+        <div>
+          <h1 class='is-size-3 is-headline has-text-weight-bold has-text-black mb-3' style='min-width: 300px'>
+            Sign in to your designated role
+          </h1>
+          <form>
+            <div class="field">
+              <div class="control">
+
+                <a class="button is-shadow-dark is-facebook is-block is-fullwidth is-primary is-medium is-rounded" href="/patient">
+                  Patient
+                </a>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <a class="button is-shadow-dark is-twitter is-block is-fullwidth is-primary is-medium is-rounded" href="/physician">
+                  Physician
+                </a>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <a class="button is-shadow-dark is-github is-block is-fullwidth is-primary is-medium is-rounded" href="/researcher">
+                  Researcher
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  userID                      Int          @id @default(autoincrement())
+  username                    String       @unique
+  email                       String       @unique
+  role                        Role         @relation(fields: [role_IDRole], references: [roleID])
+  role_IDRole                 Int
+  organization                Organization @relation(fields: [organization_IDOrganization], references: [organizationID])
+  organization_IDOrganization Int
+  lat                         Float?
+  lng                         Float?
+  patient_therapies           Therapy[]    @relation(name: "patient")
+  treater_therapies           Therapy[]    @relation(name: "treater")
+  notes                       Note[]
+}
+
+model Organization {
+  organizationID Int    @id @default(autoincrement())
+  name           String
+  users          User[]
+}
+
+model Role {
+  roleID Int    @id @default(autoincrement())
+  name   String @unique
+  type   String
+  users  User[]
+}
+
+model Note {
+  noteID                      Int          @id @default(autoincrement())
+  test_Session_IDtest_session Int
+  session                     Test_Session @relation(fields: [test_Session_IDtest_session], references: [test_SessionID])
+  note                        String
+  user_IDmed                  Int
+  user_med                    User         @relation(fields: [user_IDmed], references: [userID])
+}
+
+model Test_Session {
+  test_SessionID Int    @id @default(autoincrement())
+  type           Int
+  test_IDtest    Int
+  test           Test   @relation(fields: [test_IDtest], references: [testID])
+  dataURL        String
+  notes          Note[]
+}
+
+model Test {
+  testID            Int            @id @default(autoincrement())
+  dateTime          DateTime       @default(now())
+  therapy_IDtherapy Int
+  therapy           Therapy        @relation(fields: [therapy_IDtherapy], references: [therapyID])
+  test_sessions     Test_Session[]
+}
+
+model Therapy {
+  therapyID                 Int          @id @default(autoincrement())
+  user_IDpatient            Int
+  patient                   User         @relation(fields: [user_IDpatient], references: [userID], name: "patient")
+  user_IDmed                Int
+  medical_user              User         @relation(fields: [user_IDmed], references: [userID], name: "treater")
+  therapyList_IDtherapylist Int
+  therapyList               Therapy_List @relation(fields: [therapyList_IDtherapylist], references: [therapy_listID])
+  tests                      Test[]
+}
+
+model Therapy_List {
+  therapy_listID      Int       @id @default(autoincrement())
+  name                String
+  medicine_IDMedicine Int
+  medicine            Medicine  @relation(fields: [medicine_IDMedicine], references: [medicineID])
+  dosage              String
+  therapies           Therapy[]
+}
+
+model Medicine {
+  medicineID Int            @id @default(autoincrement())
+  name       String
+  therapies  Therapy_List[]
+}
+
+model Session {
+  id        String   @id
+  sid       String   @unique
+  data      String
+  expiresAt   DateTime
+}

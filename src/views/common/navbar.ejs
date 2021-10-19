@@ -1,0 +1,23 @@
+<!-- https://github.com/BulmaTemplates/bulma-templates -->
+<nav class="navbar is-fixed-top is-background-colored">
+    <div class="container">
+        <div class="navbar-brand">
+            <span class="navbar-item is-active is-size-5 has-text-weight-semibold">
+                Hello, <%= user.username %>
+            </span>
+            <span class="navbar-burger burger" data-target="navbarMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+        </div>
+        <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-end">
+
+                <a class="navbar-item is-size-5 has-text-weight-semibold" href="/auth/logout">
+                    Logout
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,18 @@
+<%- include('./common/head'); %>
+<header>
+    <%- include('./common/navbar', {user: user}); %>
+</header>
+<body>
+    <section class="hero is-fullheight container"  style='padding-top: 50px'>
+        <div class="hero-body has-text-centered">
+            <div class="columns is-3 is-multiline is-variable ">
+            <% for (const video of videos) { %>
+                <div class="column is-one-third-fullhd is-half-tablet is-full-mobile is-full" >
+                    <iframe class='login p-0' width="100%" height="auto" style='min-height: 300px' src="<%= video %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+             <% } %>
+
+            </div>
+        </div>
+    </section>
+    </body>

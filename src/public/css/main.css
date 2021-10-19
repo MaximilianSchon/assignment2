@@ -1,0 +1,145 @@
+* {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+:root {
+    --shadowDark: #D9DDE6;
+    --background: #ebf5fc;
+    --shadowLight: #EFF5FE;
+}
+
+.is-background-colored {
+    background-color: var(--background) !important;
+}
+
+.hero-body {
+    justify-content: center;
+}
+
+.is-shadow-dark {
+    background: var(--shadowDark) !important;
+}
+
+a {
+    font-weight: 600;
+}
+
+.is-twitter {
+    color: rgb(29, 155, 240) !important;
+}
+
+.is-facebook {
+    color: #1877f2 !important;
+}
+
+.is-github {
+    color: black !important;
+}
+
+.is-headline {
+    background: #F0B7A1;
+    background: -webkit-linear-gradient(to right, #F0B7A1 0%, #8C3310 50%, #752201 51%, #BF6E4E 100%);
+    background: -moz-linear-gradient(to right, #F0B7A1 0%, #8C3310 50%, #752201 51%, #BF6E4E 100%);
+    background: linear-gradient(to right, #F0B7A1 0%, #8C3310 50%, #752201 51%, #BF6E4E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.is-headline-secondary {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(22,121,9,1) 0%, rgba(0,212,255,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+p.title:first-letter {
+    text-transform: capitalize;
+}
+
+* {
+    background-color: #ebf5fc;
+}
+.container {
+    background-color: #ebf5fc;
+}
+
+.input,
+.textarea {
+    background-color: #ebf5fc!important;
+    border-color: #ebf5fc!important;
+    color: #363636;
+    border-radius: 40px!important;
+    box-shadow: inset 3px 3px 5px 0 rgba(0,0,0,0.1), inset -3px -3px 5px 0 rgba(255,255,255,0.9)!important;
+}
+
+
+.card.is-hoverable:hover {
+    transform: translateY(-5px) scale(1.005) translateZ(0);
+    box-shadow: 0 24px 36px rgba(0,0,0,0.11),
+      0 24px 46px var(--box-shadow-color);
+  }
+  
+  .card:hover .overlay {
+    transform: scale(4) translateZ(0);
+  }
+  
+  .card:hover .circle {
+    border-color: var(--bg-color-light);
+    background: var(--bg-color);
+  }
+  
+  .card:hover .circle:after {
+    background: var(--bg-color-light);
+  }
+  
+  .card:hover p {
+    color: var(--text-color-hover);
+  }
+  
+  .card:active {
+    transform: scale(1) translateZ(0);
+    box-shadow: 0 15px 24px rgba(0,0,0,0.11),
+      0 15px 24px var(--box-shadow-color);
+  }
+  
+
+.button,
+.card,
+.login {
+    background-color: #ebf5fc!important;
+    border-color: #ebf5fc!important;
+    color: #363636;
+    border-radius: 40px!important;
+    box-shadow: inset 3px 3px 5px 0 rgba(0,0,0,0.1), inset -3px -3px 5px 0 rgba(255,255,255,0.9)!important;
+}
+
+.card-header {
+    /* background-color: #ebf5fc!important; */
+    /* border-color: #ebf5fc!important; */
+    color: #363636;
+    border-top-left-radius: 40px!important;
+    border-top-right-radius: 40px!important;
+
+    /* box-shadow: inset 3px 3px 5px 0 rgba(0,0,0,0.1), inset -3px -3px 5px 0 rgba(255,255,255,0.9)!important; */
+}
+
+i {
+    color: #676767;
+}
+
+h3 {
+    color: #676767;
+    font-family: 'Kulim Park', sans-serif;
+}
+
+label {
+    margin-top: 3px !important;
+}
+
+
+.overflowing-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+ }
