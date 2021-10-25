@@ -23,6 +23,7 @@ export class IndexController {
     }
 
     @Authenticate("facebook")
+    @AuthRoles('patient')
     @Get("/patient")
     @View("patient.ejs")
     user(@Req()request : any) {
@@ -44,6 +45,7 @@ export class IndexController {
     }
 
     @Authenticate("twitter")
+    @AuthRoles('researcher', 'junior researcher', 'physician')
     @Get("/physician")
     @View("physician.ejs")
     async physician(@Req()request : any) {
@@ -56,6 +58,7 @@ export class IndexController {
     }
 
     @Authenticate("github")
+    @AuthRoles('researcher', 'junior researcher')
     @Get("/researcher")
     @View("researcher.ejs")
     async researcher(@Req()request : any) {
